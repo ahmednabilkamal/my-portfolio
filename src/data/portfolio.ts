@@ -34,6 +34,7 @@ export type PortfolioData = {
   location: string;
   phone: string;
   email: string;
+  cvUrl: string;
   social: SocialLink[];
   summary: string;
   stats: { label: string; value: string }[];
@@ -49,6 +50,7 @@ export const portfolio: PortfolioData = {
   location: '6 October, Giza',
   phone: '(+2011) 445 174 40',
   email: 'ahmednabil.2016@yahoo.com',
+  cvUrl: '/Ahmed-Nabil-SE.pdf',
   social: [
     {
       label: 'LinkedIn',

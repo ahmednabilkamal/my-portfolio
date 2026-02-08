@@ -36,6 +36,9 @@ export default function App() {
               <a className="btn primary" href="#contact">
                 Let’s Connect
               </a>
+              <a className="btn ghost" href={portfolio.cvUrl} target="_blank" rel="noreferrer">
+                Download CV
+              </a>
               <a className="btn ghost" href={portfolio.social[1].href} target="_blank" rel="noreferrer">
                 View GitHub
               </a>
@@ -221,6 +224,9 @@ export default function App() {
                       {link.label}
                     </a>
                   ))}
+                  <a className="btn primary" href={portfolio.cvUrl} target="_blank" rel="noreferrer">
+                    Download CV
+                  </a>
                 </div>
               </div>
             </Reveal>
