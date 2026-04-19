@@ -9,7 +9,46 @@ const stagger = {
   },
 };
 
+function getProjectInitials(name: string) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('');
+}
+
+function getProjectAvailability(storeLinks?: { label: string }[]) {
+  const hasIos = storeLinks?.some((link) => link.label === 'iOS');
+  const hasAndroid = storeLinks?.some((link) => link.label === 'Android');
+
+  if (hasIos && hasAndroid) {
+    return 'Available on iOS and Android';
+  }
+
+  if (hasIos) {
+    return 'Available on iOS';
+  }
+
+  if (hasAndroid) {
+    return 'Available on Android';
+  }
+
+  return 'Store links coming soon';
+}
+
 export default function App() {
+  const totalProjects = portfolio.projects.length;
+  const crossPlatformProjects = portfolio.projects.filter(
+    (project) =>
+      project.storeLinks?.some((link) => link.label === 'iOS') &&
+      project.storeLinks?.some((link) => link.label === 'Android')
+  ).length;
+  const liveStoreLinks = portfolio.projects.reduce(
+    (count, project) => count + (project.storeLinks?.length ?? 0),
+    0
+  );
+
   return (
     <div className="app">
       <header className="hero" id="top">
@@ -113,20 +152,74 @@ export default function App() {
                 title="Projects"
                 description={
                   <>
-                    Selected products and platforms delivered for mobile-first experiences.
+                    Published apps with direct store access for recruiters, product teams, and hiring managers.
                   </>
                 }
               />
+            </Reveal>
+            <Reveal delay={0.05}>
+              <div className="projects-overview">
+                <div className="projects-overview-copy">
+                  <p className="projects-kicker">Portfolio Highlights</p>
+                  <h3>Live products with real distribution across the App Store and Google Play.</h3>
+                  <p>
+                    Each card includes direct store links so reviewers can validate shipped work instead
+                    of reading generic project summaries.
+                  </p>
+                </div>
+                <div className="projects-overview-stats">
+                  <div className="overview-stat">
+                    <strong>{totalProjects}</strong>
+                    <span>Published apps</span>
+                  </div>
+                  <div className="overview-stat">
+                    <strong>{crossPlatformProjects}</strong>
+                    <span>Cross-platform releases</span>
+                  </div>
+                  <div className="overview-stat">
+                    <strong>{liveStoreLinks}</strong>
+                    <span>Direct store links</span>
+                  </div>
+                </div>
+              </div>
             </Reveal>
             <div className="projects-grid">
               {portfolio.projects.map((project, index) => (
                 <Reveal key={project.name} delay={index * 0.03}>
                   <article className="project-card">
+                    <div className="project-card-top">
+                      <div className="project-logo" aria-hidden="true">
+                        {project.logoUrl ? (
+                          <img src={project.logoUrl} alt="" />
+                        ) : (
+                          <span>{getProjectInitials(project.name)}</span>
+                        )}
+                      </div>
+                      <div>
+                        <h3>{project.name}</h3>
+                        <p className="tagline">{project.tagline}</p>
+                      </div>
+                    </div>
                     <div>
-                      <h3>{project.name}</h3>
-                      <p className="tagline">{project.tagline}</p>
+                      <p className="project-availability">{getProjectAvailability(project.storeLinks)}</p>
                       <p className="description">{project.description}</p>
                     </div>
+                    {project.storeLinks?.length ? (
+                      <div className="project-links">
+                        {project.storeLinks.map((link) => (
+                          <a
+                            key={`${project.name}-${link.label}`}
+                            className="store-link"
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <span>{link.label}</span>
+                            <span aria-hidden="true">↗</span>
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
                     {project.stack ? (
                       <div className="chips">
                         {project.stack.map((item) => (

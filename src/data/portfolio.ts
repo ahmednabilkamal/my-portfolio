@@ -15,6 +15,8 @@ export type Project = {
   name: string;
   tagline: string;
   description: string;
+  storeLinks?: SocialLink[];
+  logoUrl?: string;
   stack?: string[];
 };
 
@@ -45,144 +47,231 @@ export type PortfolioData = {
 };
 
 export const portfolio: PortfolioData = {
-  name: 'Ahmed Nabil',
-  title: 'Senior Software Engineer – Frontend (React Native, Android & React.js)',
-  location: '6 October, Giza',
-  phone: '(+2011) 445 174 40',
-  email: 'ahmednabil.2016@yahoo.com',
-  cvUrl: '/Ahmed-Nabil-SE.pdf',
+  name: "Ahmed Nabil",
+  title:
+    "Senior Software Engineer – Frontend (React Native, Android & React.js)",
+  location: "6 October, Giza",
+  phone: "(+2011) 445 174 40",
+  email: "ahmednabil.2016@yahoo.com",
+  cvUrl: "/Ahmed-Nabil-SE.pdf",
   social: [
     {
-      label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/ahmed-nabil-a8130895/',
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/ahmed-nabil-a8130895/",
     },
     {
-      label: 'GitHub',
-      href: 'https://github.com/ahmednabilkamal',
+      label: "GitHub",
+      href: "https://github.com/ahmednabilkamal",
     },
   ],
   summary:
-    'Senior Mobile Developer with 9+ years of experience building cross-platform mobile applications for Android and iOS. Proficient in JavaScript, TypeScript, and Agile methodologies, with a strong track record in optimizing app performance, integrating third-party APIs, and delivering user-friendly solutions.',
+    "Senior Mobile Developer with 10+ years of experience building cross-platform mobile applications for Android and iOS. Proficient in JavaScript, TypeScript, and Agile methodologies, with a strong track record in optimizing app performance, integrating third-party APIs, and delivering user-friendly solutions.",
   stats: [
-    { label: 'Years Experience', value: '9+' },
-    { label: 'Platforms', value: 'Android & iOS' },
-    { label: 'Core Focus', value: 'React Native' },
+    { label: "Years Experience", value: "10+" },
+    { label: "Platforms", value: "Android & iOS" },
+    { label: "Core Focus", value: "React Native" },
   ],
   experience: [
     {
-      company: 'Interact Technology Solutions',
-      location: 'Maadi',
-      role: 'Senior Software Engineer – Frontend',
-      period: 'Aug 2021 – Present',
+      company: "Interact Technology Solutions",
+      location: "Maadi",
+      role: "Senior Software Engineer – Frontend",
+      period: "Aug 2021 – Present",
       highlights: [
-        'Led development of a React Native inventory management app, reducing manual processes by 80%.',
-        'Mentored junior developers and conducted code reviews to ensure best practices.',
-        'Integrated Firebase for real-time data synchronization and push notifications.',
+        "Led development of a React Native inventory management app, reducing manual processes by 80%.",
+        "Mentored junior developers and conducted code reviews to ensure best practices.",
+        "Integrated Firebase for real-time data synchronization and push notifications.",
       ],
     },
     {
-      company: 'LemonAI LLC',
-      location: 'Maadi',
-      role: 'React Native Developer',
-      period: 'Feb 2020 – Aug 2021',
-      highlights: ['Built a React Native app for sports club management.'],
+      company: "LemonAI LLC",
+      location: "Maadi",
+      role: "React Native Developer",
+      period: "Feb 2020 – Aug 2021",
+      highlights: ["Built a React Native app for sports club management."],
     },
     {
-      company: 'Spell Advertising LLC',
-      location: 'Maadi',
-      role: 'Senior Android Developer',
-      period: 'Jun 2017 – Jan 2020',
+      company: "Spell Advertising LLC",
+      location: "Maadi",
+      role: "Senior Android Developer",
+      period: "Jun 2017 – Jan 2020",
       highlights: [
-        'Developed and maintained Android apps for advertising clients.',
-        'Integrated Google Maps API and payment gateways.',
-        'Improved app performance through optimization and debugging.',
+        "Developed and maintained Android apps for advertising clients.",
+        "Integrated Google Maps API and payment gateways.",
+        "Improved app performance through optimization and debugging.",
       ],
     },
     {
-      company: 'Multi Mega',
-      location: 'Maadi',
-      role: 'Android Developer',
-      period: 'Sep 2016 – May 2017',
+      company: "Multi Mega",
+      location: "Maadi",
+      role: "Android Developer",
+      period: "Sep 2016 – May 2017",
       highlights: [
-        'Contributed to Android e-commerce applications.',
-        'Worked on RESTful API integration and database management.',
-        'Resolved app crashes and improved user satisfaction.',
+        "Contributed to Android e-commerce applications.",
+        "Worked on RESTful API integration and database management.",
+        "Resolved app crashes and improved user satisfaction.",
       ],
     },
   ],
   projects: [
     {
-      name: 'Amen Mobile App',
-      tagline: 'Track children with designated receiver verification',
+      name: "Faid",
+      tagline: "On-demand local services platform",
       description:
-        'Cross-platform React Native app for real-time child location tracking with Google Maps and Firebase notifications.',
-      stack: ['React Native', 'Firebase', 'Google Maps API'],
+        "Mobile app for discovering nearby service providers and managing service requests through a simple, guided booking flow.",
+      storeLinks: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/us/app/faid/id6756526201",
+        },
+        {
+          label: "Android",
+          href: "https://play.google.com/store/apps/details?id=com.faid.app&hl=en",
+        },
+      ],
+      stack: ["React Native", "iOS", "Android"],
     },
     {
-      name: 'Fe El Khedma',
-      tagline: 'Service booking cart application',
+      name: "Biban",
+      tagline: "Entrepreneurship forum platform",
       description:
-        'Cart app for service providers enabling booking and payments with a streamlined user flow.',
+        "Event and ecosystem platform for entrepreneurs with agenda, notifications, and forum-focused digital experiences.",
+      storeLinks: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/us/app/biban/id6723862494",
+        },
+        {
+          label: "Android",
+          href: "https://play.google.com/store/apps/details?id=com.bibanglobal.sa&hl=en",
+        },
+      ],
+      stack: ["React Native", "iOS", "Android"],
     },
     {
-      name: 'SMG Mobile App',
-      tagline: 'Purchase car spare parts',
+      name: "Asima",
+      tagline: "iOS application",
       description:
-        'E-commerce app for spare parts with secure payments and a user-friendly interface.',
+        "Productized iOS mobile experience delivered with a focus on polished UI and production-grade release quality.",
+      storeLinks: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/us/app/asima-%D8%A7%D8%B3%D9%8A%D9%85%D8%A7/id6761766764",
+        },
+      ],
+      stack: ["iOS"],
     },
     {
-      name: 'Club Master',
-      tagline: 'Manage club members, sports, and courses',
+      name: "NASAQ",
+      tagline: "iOS application",
       description:
-        'Cloud-based system for club admins and members to manage activities and services around the clock.',
+        "Published iOS app built for a production release workflow, user-facing performance, and app-store readiness.",
+      storeLinks: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/us/app/nasaq-%D9%86%D8%B3%D9%82/id6761719275",
+        },
+      ],
+      stack: ["iOS"],
     },
     {
-      name: 'Service Field App & Dashboard',
-      tagline: 'Inventory management system',
+      name: "PureSite",
+      tagline: "Cross-platform mobile app",
       description:
-        'Offline-enabled inventory app to track stock levels and resolve customer issues efficiently.',
+        "Cross-platform application delivered for both iOS and Android with a user-focused mobile experience.",
+      storeLinks: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/us/app/puresite-%D8%A8%D9%8A%D9%88%D8%B1-%D8%B3%D8%A7%D9%8A%D8%AA/id6761421822",
+        },
+        {
+          label: "Android",
+          href: "https://play.google.com/store/apps/details?id=com.afsc.PureSite&hl=en",
+        },
+      ],
+      stack: ["React Native", "iOS", "Android"],
     },
     {
-      name: 'Bayaan – Abu Dhabi Statistics',
-      tagline: 'Official statistics platform',
+      name: "Earno",
+      tagline: "Cross-platform mobile app",
       description:
-        'Explore trusted economic, social, and environmental statistics to support research and decisions.',
+        "Cross-platform product shipped to both stores with production-grade mobile delivery and release management.",
+      storeLinks: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/us/app/earno-%D8%A5%D9%8A%D8%B1%D9%86%D9%88/id6761137437",
+        },
+        {
+          label: "Android",
+          href: "https://play.google.com/store/apps/details?id=com.afsc.earno",
+        },
+      ],
+      stack: ["React Native", "iOS", "Android"],
     },
     {
-      name: 'Presence Plus',
-      tagline: 'Field mission management',
+      name: "Throwback",
+      tagline: "iOS application",
       description:
-        'Real-time mission lifecycle management with CRM and HR integrations.',
+        "Published mobile app currently available on iOS with a clean consumer-facing product experience.",
+      storeLinks: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/us/app/throwback-%D8%AB%D8%B1%D9%88%D8%A8%D8%A7%D9%83/id6762511229",
+        },
+      ],
+      stack: ["iOS"],
     },
     {
-      name: 'Biban App',
-      tagline: 'Entrepreneurship forum app',
+      name: "Taxi Wattan Driver",
+      tagline: "Driver-side ride hailing app",
       description:
-        'Event platform supporting the entrepreneurship ecosystem with a global focus.',
+        "Driver mobile app with trip requests, GPS navigation, earnings tracking, and bilingual UX.",
+      storeLinks: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/us/app/%D8%B3%D9%88%D8%A7%D9%82-%D8%AA%D9%83%D8%B3%D9%8A-%D9%88%D8%B7%D9%86/id6755447750",
+        },
+        {
+          label: "Android",
+          href: "https://play.google.com/store/apps/details?id=com.vexxaai.taxi_watan_driver",
+        },
+      ],
+      stack: ["React Native", "iOS", "Android"],
     },
     {
-      name: 'Taxi Wattan (Driver)',
-      tagline: 'Driver-side ride-hailing',
+      name: "Taxi Wattan Rider",
+      tagline: "Passenger ride hailing app",
       description:
-        'Trip requests, GPS navigation, earnings tracking, and bilingual interface for drivers.',
-    },
-    {
-      name: 'Taxi Wattan (Rider)',
-      tagline: 'Passenger ride-hailing app',
-      description:
-        'Passenger-focused Android app with real-time tracking and seamless trip management.',
+        "Passenger app for booking rides, viewing real-time driver updates, and managing trips from a simple mobile flow.",
+      storeLinks: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/us/app/%D8%AA%D9%83%D8%B3%D9%8A-%D9%88%D8%B7%D9%86/id6755160104",
+        },
+        {
+          label: "Android",
+          href: "https://play.google.com/store/apps/details?id=com.vexxaai.taxiwatanuser",
+        },
+      ],
+      stack: ["React Native", "iOS", "Android"],
     },
   ],
   skills: [
-    { title: 'Programming Languages', items: ['Java', 'JavaScript', 'TypeScript'] },
-    { title: 'Web Development', items: ['HTML', 'CSS', 'SQL', 'React.js'] },
-    { title: 'Mobile Development', items: ['Android', 'React Native'] },
-    { title: 'Tools & Frameworks', items: ['Firebase', 'State Management', 'Git', 'Agile'] },
+    {
+      title: "Programming Languages",
+      items: ["Java", "JavaScript", "TypeScript"],
+    },
+    { title: "Web Development", items: ["HTML", "CSS", "SQL", "React.js"] },
+    { title: "Mobile Development", items: ["Android", "React Native"] },
+    {
+      title: "Tools & Frameworks",
+      items: ["Firebase", "State Management", "Git", "Agile"],
+    },
   ],
   education: [
     {
-      degree: 'B.Sc. in Computer Science',
-      school: 'Faculty of Computers and Information – Cairo University',
+      degree: "B.Sc. in Computer Science",
+      school: "Faculty of Computers and Information – Cairo University",
     },
   ],
 };
