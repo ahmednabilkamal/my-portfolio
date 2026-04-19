@@ -48,6 +48,22 @@ type ProjectLogoProps = {
   fallbackText: string;
 };
 
+type StorePlatformIconProps = {
+  label: string;
+};
+
+function getStorePlatformClass(label: string) {
+  if (label === 'iOS') {
+    return 'store-link ios';
+  }
+
+  if (label === 'Android') {
+    return 'store-link android';
+  }
+
+  return 'store-link';
+}
+
 function ProjectLogo({ logoUrl, fallbackText }: ProjectLogoProps) {
   const [hasError, setHasError] = useState(false);
 
@@ -64,6 +80,32 @@ function ProjectLogo({ logoUrl, fallbackText }: ProjectLogoProps) {
       onError={() => setHasError(true)}
     />
   );
+}
+
+function StorePlatformIcon({ label }: StorePlatformIconProps) {
+  if (label === 'iOS') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M15.1 3.5c0 1-.4 2-1 2.7-.7.8-1.8 1.4-2.8 1.3-.1-1 .3-2 1-2.7.7-.8 1.8-1.4 2.8-1.3Zm3.5 13.3c-.4.9-.9 1.8-1.6 2.6-.9 1.1-1.8 2.3-3.2 2.3-1.3 0-1.7-.8-3.2-.8s-1.9.8-3.2.8c-1.3 0-2.2-1.2-3.2-2.3-1.8-2.1-3.2-5.9-1.3-8.8.9-1.4 2.5-2.2 4-2.2 1.3 0 2.5.9 3.2.9.7 0 2.1-1.1 3.6-.9.6 0 2.4.2 3.5 1.9-.1.1-2.1 1.2-2.1 3.7 0 3 2.6 4 2.7 4-.1.2-.4 1-.9 1.8Z"
+          fill="currentColor"
+        />
+      </svg>
+    );
+  }
+
+  if (label === 'Android') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M7.1 7.4 5.8 5.1a.5.5 0 1 1 .9-.5L8 6.9A8.6 8.6 0 0 1 12 6c1.4 0 2.8.3 4 .9l1.3-2.3a.5.5 0 1 1 .9.5l-1.3 2.3A6 6 0 0 1 20 12v6.2c0 .5-.4.8-.8.8h-.7v2.3a1.2 1.2 0 0 1-2.4 0V19h-1.4v2.3a1.2 1.2 0 0 1-2.4 0V19H11v2.3a1.2 1.2 0 0 1-2.4 0V19H7.2c-.5 0-.8-.3-.8-.8V12a6 6 0 0 1 3.1-4.6ZM9.3 10.2a.7.7 0 1 0 0-1.4.7.7 0 0 0 0 1.4Zm5.4 0a.7.7 0 1 0 0-1.4.7.7 0 0 0 0 1.4Z"
+          fill="currentColor"
+        />
+      </svg>
+    );
+  }
+
+  return <span>{label[0]}</span>;
 }
 
 export default function App() {
@@ -237,13 +279,14 @@ export default function App() {
                         {project.storeLinks.map((link) => (
                           <a
                             key={`${project.name}-${link.label}`}
-                            className="store-link"
+                            className={getStorePlatformClass(link.label)}
                             href={link.href}
                             target="_blank"
                             rel="noreferrer"
+                            aria-label={`Open ${project.name} on ${link.label}`}
+                            title={link.label}
                           >
-                            <span>{link.label}</span>
-                            <span aria-hidden="true">↗</span>
+                            <StorePlatformIcon label={link.label} />
                           </a>
                         ))}
                       </div>
