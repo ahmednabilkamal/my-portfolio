@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { portfolio } from './data/portfolio';
 import { Reveal } from './components/Reveal';
 import { SectionHeading } from './components/SectionHeading';
+import { useAppleAppIcons } from './hooks/useAppleAppIcons';
 
 const stagger = {
   visible: {
@@ -38,6 +39,7 @@ function getProjectAvailability(storeLinks?: { label: string }[]) {
 }
 
 export default function App() {
+  const projectIcons = useAppleAppIcons(portfolio.projects);
   const totalProjects = portfolio.projects.length;
   const crossPlatformProjects = portfolio.projects.filter(
     (project) =>
@@ -189,8 +191,8 @@ export default function App() {
                   <article className="project-card">
                     <div className="project-card-top">
                       <div className="project-logo" aria-hidden="true">
-                        {project.logoUrl ? (
-                          <img src={project.logoUrl} alt="" />
+                        {project.logoUrl ?? projectIcons[project.name] ? (
+                          <img src={project.logoUrl ?? projectIcons[project.name]} alt="" />
                         ) : (
                           <span>{getProjectInitials(project.name)}</span>
                         )}
