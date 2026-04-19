@@ -203,7 +203,6 @@ export default function App() {
                       </div>
                       <div>
                         <h3>{project.name}</h3>
-                        <p className="tagline">{project.tagline}</p>
                       </div>
                     </div>
                     <div>
@@ -223,13 +222,6 @@ export default function App() {
                             <span>{link.label}</span>
                             <span aria-hidden="true">↗</span>
                           </a>
-                        ))}
-                      </div>
-                    ) : null}
-                    {project.stack ? (
-                      <div className="chips">
-                        {project.stack.map((item) => (
-                          <span key={item}>{item}</span>
                         ))}
                       </div>
                     ) : null}

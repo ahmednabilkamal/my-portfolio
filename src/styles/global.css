@@ -377,12 +377,6 @@ a {
   object-fit: cover;
 }
 
-.tagline {
-  color: var(--accent);
-  font-weight: 600;
-  margin: 6px 0 8px;
-}
-
 .project-availability {
   display: inline-flex;
   align-items: center;
