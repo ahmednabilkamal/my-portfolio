@@ -38,6 +38,10 @@ function getProjectAvailability(storeLinks?: { label: string }[]) {
   return 'Store links coming soon';
 }
 
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 export default function App() {
   const projectIcons = useAppleAppIcons(portfolio.projects);
   const totalProjects = portfolio.projects.length;
@@ -331,7 +335,23 @@ export default function App() {
 
       <footer className="footer">
         <p>© {new Date().getFullYear()} {portfolio.name}. All rights reserved.</p>
-        <a href="#top">Back to top</a>
+        <motion.button
+          type="button"
+          className="back-to-top"
+          onClick={scrollToTop}
+          whileHover={{ y: -3 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <span>Back to top</span>
+          <motion.span
+            className="back-to-top-icon"
+            aria-hidden="true"
+            animate={{ y: [0, -4, 0] }}
+            transition={{ duration: 1.4, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}
+          >
+            ↑
+          </motion.span>
+        </motion.button>
       </footer>
     </div>
   );
