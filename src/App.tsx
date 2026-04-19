@@ -317,15 +317,19 @@ export default function App() {
                   <a href={`tel:${portfolio.phone.replace(/\s/g, '')}`}>{portfolio.phone}</a>
                   <p>{portfolio.location}</p>
                 </div>
+                <a className="contact-download" href={portfolio.cvUrl} target="_blank" rel="noreferrer">
+                  <span className="contact-download-copy">
+                    <strong>Download CV</strong>
+                    <small>Open PDF resume</small>
+                  </span>
+                  <span className="contact-download-icon" aria-hidden="true">↗</span>
+                </a>
                 <div className="contact-actions">
                   {portfolio.social.map((link) => (
                     <a key={link.label} className="btn ghost" href={link.href} target="_blank" rel="noreferrer">
                       {link.label}
                     </a>
                   ))}
-                  <a className="btn primary" href={portfolio.cvUrl} target="_blank" rel="noreferrer">
-                    Download CV
-                  </a>
                 </div>
               </div>
             </Reveal>
