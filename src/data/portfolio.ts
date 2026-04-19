@@ -222,6 +222,21 @@ export const portfolio: PortfolioData = {
       stack: ["iOS"],
     },
     {
+      name: "GoodsMart",
+      tagline: "Premium household delivery app",
+      description:
+        "Android shopping app for scheduled household delivery with late-night ordering, no-delivery-fee convenience, and doorstep drop-box fulfillment.",
+      storeLinks: [
+        {
+          label: "Android",
+          href: "https://play.google.com/store/apps/details?id=hussein.apps.talabaty&hl=en",
+        },
+      ],
+      logoUrl:
+        "https://play-lh.googleusercontent.com/xm5xfIvwQJhQLZk5kNRUNyMSAcTwWFDUswayB-CtaXWkdsnUm1SmMfUVhvMRdo2deS0=w240-h480",
+      stack: ["Android"],
+    },
+    {
       name: "Taxi Wattan Driver",
       tagline: "Driver-side ride hailing app",
       description:

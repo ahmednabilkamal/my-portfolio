@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { portfolio } from './data/portfolio';
 import { Reveal } from './components/Reveal';
 import { SectionHeading } from './components/SectionHeading';
@@ -40,6 +41,29 @@ function getProjectAvailability(storeLinks?: { label: string }[]) {
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+type ProjectLogoProps = {
+  logoUrl?: string;
+  fallbackText: string;
+};
+
+function ProjectLogo({ logoUrl, fallbackText }: ProjectLogoProps) {
+  const [hasError, setHasError] = useState(false);
+
+  if (!logoUrl || hasError) {
+    return <span>{fallbackText}</span>;
+  }
+
+  return (
+    <img
+      src={logoUrl}
+      alt=""
+      loading="lazy"
+      referrerPolicy="no-referrer"
+      onError={() => setHasError(true)}
+    />
+  );
 }
 
 export default function App() {
@@ -195,11 +219,10 @@ export default function App() {
                   <article className="project-card">
                     <div className="project-card-top">
                       <div className="project-logo" aria-hidden="true">
-                        {project.logoUrl ?? projectIcons[project.name] ? (
-                          <img src={project.logoUrl ?? projectIcons[project.name]} alt="" />
-                        ) : (
-                          <span>{getProjectInitials(project.name)}</span>
-                        )}
+                        <ProjectLogo
+                          logoUrl={project.logoUrl ?? projectIcons[project.name]}
+                          fallbackText={getProjectInitials(project.name)}
+                        />
                       </div>
                       <div>
                         <h3>{project.name}</h3>
