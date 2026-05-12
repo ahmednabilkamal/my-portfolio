@@ -223,6 +223,8 @@ export const portfolio: PortfolioData = {
           href: "https://play.google.com/store/apps/details?id=com.venus.throwback&hl=en",
         },
       ],
+      logoUrl:
+        "https://play-lh.googleusercontent.com/x3FenW3dmoglSAGB3wNxlfVX4Cvd6LG-YS58Qfh3wC6Lg8nzZhJedx3zOfDojwa9Nw73SLWBG7ro12lh2-WvSfs=w240-h480",
       stack: ["iOS", "Android"],
     },
     {
