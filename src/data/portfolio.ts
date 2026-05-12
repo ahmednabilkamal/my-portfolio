@@ -210,16 +210,20 @@ export const portfolio: PortfolioData = {
     },
     {
       name: "Throwback",
-      tagline: "iOS application",
+      tagline: "Photos, albums & sharing",
       description:
-        "Published mobile app currently available on iOS with a clean consumer-facing product experience.",
+        "Consumer app to save and share photos and videos: digital albums, privacy-controlled sharing, social discovery, and family connections — available on iOS and Android.",
       storeLinks: [
         {
           label: "iOS",
           href: "https://apps.apple.com/us/app/throwback-%D8%AB%D8%B1%D9%88%D8%A8%D8%A7%D9%83/id6762511229",
         },
+        {
+          label: "Android",
+          href: "https://play.google.com/store/apps/details?id=com.venus.throwback&hl=en",
+        },
       ],
-      stack: ["iOS"],
+      stack: ["iOS", "Android"],
     },
     {
       name: "GoodsMart",
