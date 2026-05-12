@@ -270,7 +270,7 @@ export default function App() {
                         <h3>{project.name}</h3>
                       </div>
                     </div>
-                    <div>
+                    <div className="project-card-body">
                       <p className="project-availability">{getProjectAvailability(project.storeLinks)}</p>
                       <p className="description">{project.description}</p>
                     </div>

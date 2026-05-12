@@ -251,6 +251,20 @@ a {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: stretch;
+}
+
+/* Stretch Reveal wrappers so every card fills the grid row height */
+.projects-grid > * {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.projects-grid > * > .project-card {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
 }
 
 .projects-overview {
@@ -323,7 +337,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  min-height: 220px;
+  height: 100%;
   position: relative;
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -347,8 +361,16 @@ a {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-shrink: 0;
   position: relative;
   z-index: 1;
+}
+
+.project-card-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-logo {
@@ -400,6 +422,7 @@ a {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  flex-shrink: 0;
   position: relative;
   z-index: 1;
 }
